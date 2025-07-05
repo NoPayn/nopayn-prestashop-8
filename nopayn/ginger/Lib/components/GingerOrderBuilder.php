@@ -62,6 +62,7 @@ class GingerOrderBuilder
             webhook_url: $this->getWebhookURL(),
             return_url: $this->getReturnURL(),
             merchantOrderId: $this->getMerchantOrderId(),
+            expiration_period: 'PT5M',
             description: $this->getOrderDescription());
     }
 
@@ -297,7 +298,7 @@ class GingerOrderBuilder
         if (\Configuration::get('GINGER_CREDITCARD_CAPTURE_MANUAL')) {
             $args['capture_mode'] = 'manual';
         }
-
+        $args['expiration_period'] = 'PT5M';
         return new Transactions(
             new Transaction(...$args)
         );
