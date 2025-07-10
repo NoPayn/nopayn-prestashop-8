@@ -62,6 +62,7 @@ class GingerOrderBuilder
             webhook_url: $this->getWebhookURL(),
             return_url: $this->getReturnURL(),
             merchantOrderId: $this->getMerchantOrderId(),
+            expiration_period: 'PT5M',
             description: $this->getOrderDescription());
     }
 
@@ -298,6 +299,7 @@ class GingerOrderBuilder
             $args['capture_mode'] = 'manual';
         }
 
+        $args['expiration_period'] = 'PT5M';
         return new Transactions(
             new Transaction(...$args)
         );
