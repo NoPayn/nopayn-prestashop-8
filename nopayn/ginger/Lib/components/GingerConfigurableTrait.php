@@ -210,7 +210,7 @@ trait GingerConfigurableTrait
                 'name' => $countryAccessValidationVar,
                 'required' => true,
                 'desc' => $this->trans('To allow %method% to be used for any other country just add its country code (in ISO 2 standard) to the "Countries available for %method%" field. Example: BE, NL, FR If field is empty then %method% will be available for all countries.',
-                ['%method%'=> $methodLabel],'Modules.Nopayn.Admin'
+                    ['%method%'=> $methodLabel],'Modules.Nopayn.Admin'
                 ),
             ] : null,
             ($this->method_id == 'credit-card') ? [
