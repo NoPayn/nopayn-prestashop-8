@@ -225,6 +225,11 @@ class GingerOrderBuilder
      */
     public function getOrderDescription()
     {
+        $configuredDescription = trim((string) \Configuration::get('GINGER_ORDER_DESCRIPTION'));
+        if ($configuredDescription !== '') {
+            return $configuredDescription;
+        }
+
         return sprintf($this->paymentMethod->l('Your order at') . " %s", \Configuration::get('PS_SHOP_NAME'));
     }
 
@@ -405,5 +410,4 @@ class GingerOrderBuilder
         );
     }
 }
-
 
